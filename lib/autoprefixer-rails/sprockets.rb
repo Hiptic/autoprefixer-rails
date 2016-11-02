@@ -18,11 +18,6 @@ module AutoprefixerRails
     def self.run(filename, css)
       output = filename.chomp(File.extname(filename)) + '.css'
       result = @processor.process(css, from: filename, to: output)
-
-      result.warnings.each do |warning|
-        $stderr.puts "autoprefixer: #{ warning }"
-      end
-
       result.css
     end
 
